@@ -86,7 +86,7 @@ body {
 #about .cont #a-card {
   border-radius: 0%;
   padding: 15px;
-  box-shadow: 0 30px 20px 0 #060707;
+  box-shadow: 0 30px 20px 0 #befcfc;
 }
 
 #show-card {
@@ -98,7 +98,7 @@ body {
   height: 20rem;
   margin: 5px;
   border-radius: 0%;
-  box-shadow: 0 30px 20px 0 #060707;
+  box-shadow: 0 30px 20px 0 #a4f9f9;
 }
 #show-card .card p {
   font-size: small;
