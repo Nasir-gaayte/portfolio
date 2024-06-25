@@ -80,7 +80,7 @@ body {
   font-size: x-large;
 }
 #about .cont {
-  background-color: rgb(160, 169, 162);
+  background-color: #1f2428;
   padding: 35px 50px;
 }
 #about .cont #a-card {
@@ -113,7 +113,7 @@ body {
   margin-bottom: 10px;
   height: 60vh;
   width: auto;
-  background-color: #060707;
+  background-color:#1f2428;
 }
 #foot .inn {
   display: flex;
