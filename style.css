@@ -127,18 +127,18 @@ a:hover { color: var(--link-hover); }
 
 .hero {
   background-color: var(--hero-bg);
-  height: 90vh;
+  height: 100vh;
   color: var(--hero-text);
 }
 .hero #portimg {
   height: 150px;
   width: 130px;
   object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  box-shadow: 0  15px 35px rgba(1, 111, 255, 0.945);
 }
 .hero #content-hero {
-  width: 800px;
+  width: 900px;
   margin: 0 auto;
   padding: 5em;
 }
@@ -305,7 +305,7 @@ img { filter: grayscale(100%); }
   50% { transform: translateY(-6px); }
   100% { transform: translateY(0); }
 }
-.hero #myname { animation: float 6s ease-in-out infinite; }
+.hero #myname { animation: float 2s ease-in-out  infinite; }
 
 @media screen and (max-width: 470px) {
   * {
