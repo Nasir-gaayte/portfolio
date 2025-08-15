@@ -186,7 +186,6 @@
             </div>
         </section>
     </div>
-    <script src="script.js"></script>
     <script>
       (function() {
         const elements = document.querySelectorAll('.reveal');
@@ -216,6 +215,20 @@
         btn?.addEventListener('click', () => {
           root.classList.toggle('theme-invert');
           localStorage.setItem(storageKey, root.classList.contains('theme-invert') ? '1' : '0');
+        });
+
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function () {
+            const hero = document.querySelector('.hero');
+            const scrollableContent = document.querySelector('.scrollable-content');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    hero.classList.add('fade-out');
+                } else {
+                    hero.classList.remove('fade-out');
+                }
+            });
         });
       })();
     </script>
