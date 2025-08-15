@@ -322,30 +322,41 @@ img { filter: grayscale(100%); }
 }
 .hero #myname { animation: float 2s ease-in-out  infinite; }
 
-@media screen and (max-width: 470px) {
-  * {
-    margin: 0%;
-    padding: 0%;
-    font-size: small;
-  }
-  * .hero {
-    font-size: small;
-    display: flex;
-    flex-direction: column;
-    height: 60vh;
-    width: auto;
-  }
-  * .hero #content-hero { width: 270px; }
-  .skills-grid { grid-template-columns: repeat(2, 1fr); }
-  * #foot { height: auto; }
-  * #foot .inn { margin-bottom: 10px; }
-}
-
-
 @media screen and (max-width: 900px) {
   .hero #content-hero { width: 100%; padding: 2em; }
   .hero #content-hero .hero-1 { flex-direction: column; gap: 1em; }
   .hero #content-hero .hero-1 #myname { font-size: 50px; }
   .hero #portimg { height: 120px; width: 100px; }
   .skills-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+}
+
+@media screen and (max-width: 470px) {
+  .hero #content-hero { 
+    width: 100%; 
+    padding: 1em; 
+  }
+  .hero #content-hero .hero-1 { 
+    flex-direction: column; 
+    gap: 1em; 
+    text-align: center;
+  }
+  .hero #content-hero .hero-1 #myname { 
+    font-size: 40px; 
+  }
+  .hero #portimg { 
+    height: 100px; 
+    width: 80px; 
+  }
+  .skills-grid { 
+    grid-template-columns: 1fr; 
+  }
+  #foot .social ul {
+    flex-direction: column;
+    gap: 1em;
+  }
+  #foot .back ul {
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+  }
 }
