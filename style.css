@@ -129,6 +129,14 @@ a:hover { color: var(--link-hover); }
   background-color: var(--hero-bg);
   height: 100vh;
   color: var(--hero-text);
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+.hero.fade-out {
+  opacity: 0;
+  pointer-events: none;
 }
 .hero #portimg {
   height: 150px;
@@ -162,6 +170,13 @@ a:hover { color: var(--link-hover); }
   gap: 2em;
 }
 .hero #content-hero .hero-1 #myname { font-size: 70px; }
+
+.scrollable-content {
+  margin-top: 100vh;
+  position: relative;
+  z-index: 2;
+  background-color: var(--bg);
+}
 
 #card-pox .tit {
   font-weight: 900;
@@ -277,16 +292,8 @@ img { filter: grayscale(100%); }
 
 /* Animations */
 /* Scroll reveal */
-.reveal { 
-  opacity: 0; 
-  transform: translateY(16px); 
-  transition: opacity 600ms ease, transform 600ms ease; 
-}
-.reveal.is-visible { 
-  opacity: 1; 
-  transform: translateY(0); 
-}
-
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 600ms ease, transform 600ms ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -297,9 +304,7 @@ img { filter: grayscale(100%); }
     transform: translateY(0);
   }
 }
-.fade-in-up { 
-  animation: fadeInUp 600ms ease both; 
-}
+.fade-in-up { animation: fadeInUp 600ms ease both; }
 .fade-in-up:nth-child(1) { animation-delay: 60ms; }
 .fade-in-up:nth-child(2) { animation-delay: 120ms; }
 .fade-in-up:nth-child(3) { animation-delay: 180ms; }
@@ -315,19 +320,7 @@ img { filter: grayscale(100%); }
   50% { transform: translateY(-6px); }
   100% { transform: translateY(0); }
 }
-.hero #myname { 
-  animation: float 2s ease-in-out infinite; 
-}
-
-.hidden {
-  opacity: 0;
-  transition: opacity 1s ease-out;
-}
-
-.visible {
-  opacity: 1;
-  transition: opacity 1s ease-in;
-}
+.hero #myname { animation: float 2s ease-in-out  infinite; }
 
 @media screen and (max-width: 470px) {
   * {
