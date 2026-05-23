@@ -1,236 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <title>nasir gaayte</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nasir Gaayte - Fullstack Developer, Flutter mobile app developer, Django API engineer, and DevOps specialist from Bosaso, Somalia.">
+  <title>Nasir Gaayte | Fullstack Developer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section class="nav ">
-        <a class="nav-link" href="#card-pox">
-            Skills
-        </a>
-        <a class="nav-link"  href="#about">
-            About
-        </a>
-        <a class="nav-link"  href="#foot">
-            contact
-        </a>
-    </section>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scene-decor" aria-hidden="true">
+    <span class="blob blob-left"></span>
+    <span class="blob blob-right"></span>
+    <span class="blob blob-bottom"></span>
+    <span class="sphere sphere-blue"></span>
+    <span class="sphere sphere-gold"></span>
+    <span class="tube tube-top"></span>
+    <span class="tube tube-bottom"></span>
+  </div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Nasir Gaayte home">
+      <span>NG</span>
+    </a>
 
-    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-      <span class="sun" aria-hidden="true">☀</span>
-      <span class="moon" aria-hidden="true">🌙</span>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2"></path>
+        <path d="M12 20v2"></path>
+        <path d="m4.93 4.93 1.41 1.41"></path>
+        <path d="m17.66 17.66 1.41 1.41"></path>
+        <path d="M2 12h2"></path>
+        <path d="M20 12h2"></path>
+        <path d="m6.34 17.66-1.41 1.41"></path>
+        <path d="m19.07 4.93-1.41 1.41"></path>
+      </svg>
+      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3a6 6 0 0 0 9 7.5 9 9 0 1 1-9-7.5Z"></path>
+      </svg>
     </button>
+  </header>
 
-    <section class="hero reveal">
-            <div id="content-hero" >
-                <div class="hero-1" >
-                    <img id="portimg" src="naisrG.jpeg" alt="">
-                    <h1 id="myname">Nasir <br> Gaayte</h1>
-                 </div>
-                 <div class="hero-2">
-                    <p><h3> Fullstack Developer</h3>& <h3>MobileApp</h3>& <h3>Devops</h3></p>
-                    <p><h6>code to me like water to tree </h6></p>
-                 </div>
-            </div>
+  <main>
+    <section class="hero section-shell glass-stage reveal focus-section section-active" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">Bosaso, Somalia | Available for web, mobile, and deployment work</p>
+        <h1>Nasir Gaayte builds apps, APIs, and production-ready servers.</h1>
+        <p class="hero-text">
+          Fullstack Developer focused on Flutter mobile apps, Django backends, REST APIs, and DevOps workflows that move projects from idea to live product.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://github.com/Nasir-gaayte" target="_blank" rel="noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.48.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"></path>
+            </svg>
+            GitHub
+          </a>
+          <a class="button secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="portrait-card glass-panel">
+          <div class="liquid-shape shape-one" aria-hidden="true"></div>
+          <div class="liquid-shape shape-two" aria-hidden="true"></div>
+          <div class="card-chip" aria-hidden="true"></div>
+          <img src="naisrG.jpeg" alt="Nasir Gaayte">
+          <div class="status-card">
+            <span class="status-dot"></span>
+            <span>Fullstack Developer</span>
+          </div>
+        </div>
+        <div class="metric-card glass-panel">
+          <strong>Flutter + Django</strong>
+          <span>Mobile apps backed by clean REST APIs</span>
+        </div>
+      </div>
     </section>
-    <div class="scrollable-content">
-        <section id="card-pox" style="margin-top: 30px; margin-bottom:10px" class="container reveal">
-            <h1 class="">Skills</h1>
-            <div class="skills-grid" aria-label="Core skills">
-                <div class="skill fade-in-up reveal">
-                    <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
-                        <circle cx="32" cy="32" r="28" class="icon-stroke"/>
-                        <text x="32" y="38" text-anchor="middle" class="icon-text">FL</text>
-                    </svg>
-                    <span class="skill-name">Flutter (Android · iOS)</span>
-                </div>
-                <div class="skill fade-in-up reveal">
-                    <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
-                        <circle cx="32" cy="32" r="28" class="icon-stroke"/>
-                        <text x="32" y="38" text-anchor="middle" class="icon-text">DJ</text>
-                    </svg>
-                    <span class="skill-name">Django framework</span>
-                </div>
-                <div class="skill fade-in-up reveal">
-                    <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
-                        <circle cx="32" cy="32" r="28" class="icon-stroke"/>
-                        <text x="32" y="38" text-anchor="middle" class="icon-text">API</text>
-                    </svg>
-                    <span class="skill-name">REST Framework API</span>
-                </div>
-                <div class="skill fade-in-up reveal">
-                    <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
-                        <circle cx="32" cy="32" r="28" class="icon-stroke"/>
-                        <text x="32" y="38" text-anchor="middle" class="icon-text">DO</text>
-                    </svg>
-                    <span class="skill-name">DevOps</span>
-                </div>
-                <div class="skill fade-in-up reveal">
-                    <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
-                        <circle cx="32" cy="32" r="28" class="icon-stroke"/>
-                        <text x="32" y="38" text-anchor="middle" class="icon-text">UB</text>
-                    </svg>
-                    <span class="skill-name">Ubuntu Server</span>
-                </div>
-                <div class="skill fade-in-up reveal">
-                    <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
-                        <circle cx="32" cy="32" r="28" class="icon-stroke"/>
-                        <text x="32" y="38" text-anchor="middle" class="icon-text">NX</text>
-                    </svg>
-                    <span class="skill-name">Nginx & Apache</span>
-                </div>
-                <div class="skill fade-in-up reveal">
-                    <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
-                        <circle cx="32" cy="32" r="28" class="icon-stroke"/>
-                        <text x="32" y="38" text-anchor="middle" class="icon-text">HT</text>
-                    </svg>
-                    <span class="skill-name">HTML</span>
-                </div>
-                <div class="skill fade-in-up reveal">
-                    <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
-                        <circle cx="32" cy="32" r="28" class="icon-stroke"/>
-                        <text x="32" y="38" text-anchor="middle" class="icon-text">CS</text>
-                    </svg>
-                    <span class="skill-name">CSS & SCSS</span>
-                </div>
-                <div class="skill fade-in-up">
-                    <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
-                        <circle cx="32" cy="32" r="28" class="icon-stroke"/>
-                        <text x="32" y="38" text-anchor="middle" class="icon-text">BS</text>
-                    </svg>
-                    <span class="skill-name">Bootstrap</span>
-                </div>
-            </div>
 
-            <h2 class="skills-subtitle">Also have some knowledge in</h2>
-            <div class="skills-grid secondary" aria-label="Secondary skills">
-                <div class="skill fade-in-up reveal">
-                    <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
-                        <circle cx="32" cy="32" r="28" class="icon-stroke"/>
-                        <text x="32" y="38" text-anchor="middle" class="icon-text">FG</text>
-                    </svg>
-                    <span class="skill-name">Figma UI Design</span>
-                </div>
-                <div class="skill fade-in-up reveal">
-                    <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
-                        <circle cx="32" cy="32" r="28" class="icon-stroke"/>
-                        <text x="32" y="38" text-anchor="middle" class="icon-text">JQ</text>
-                    </svg>
-                    <span class="skill-name">jQuery</span>
-                </div>
-                <div class="skill fade-in-up reveal">
-                    <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
-                        <circle cx="32" cy="32" r="28" class="icon-stroke"/>
-                        <text x="32" y="38" text-anchor="middle" class="icon-text">HX</text>
-                    </svg>
-                    <span class="skill-name">HTMX</span>
-                </div>
-            </div>
-        </section>
+    <section class="section-shell quick-grid focus-section" id="highlights" aria-label="Highlights">
+      <article class="glass-panel stat reveal">
+        <span>01</span>
+        <strong>Mobile Apps</strong>
+        <p>Flutter experiences for Android and iOS.</p>
+      </article>
+      <article class="glass-panel stat reveal">
+        <span>02</span>
+        <strong>Backend APIs</strong>
+        <p>Django and REST Framework services.</p>
+      </article>
+      <article class="glass-panel stat reveal">
+        <span>03</span>
+        <strong>DevOps</strong>
+        <p>Ubuntu, Nginx, Apache, and deployment support.</p>
+      </article>
+    </section>
 
-        <section id="about" class="reveal">
-           
-            <div class="cont">
-                <div id="a-card" class="card reveal">
-                    I am Nasir-gaayte fullstack Developer from Bosaso Somalia, specialist in.
-                    <li> Flutter Android -ios App.</li>
-                    <li> Django framework .</li>
-                    <li>Rest-framework API.</li>
-                    <li>Devops</li>
-                    <li>Ubuntu Server</li> 
-                    <li>Nginx&Apachi</li>
-                    <li> Html </li>
-                    <li> Css & Scss </li>
-                    <li> Bootstrap </li>
-                    also have some knowledge in. 
-                    <li>Figma ui design</li>
-                    <li> jQuery </li>
-                    <li> Htmx </li>
-                    <br><br>
-                    You can find some of my work in my github <a style="text-decoration: none;" href="https://github.com/Nasir-gaayte/"> Here...</a>
-                    Also you can find on of my live project  <a style="text-decoration: none;" href="http://somdevops.net//"> Here...</a>
-                    Application on flutter using Rest-framework Api   <a style="text-decoration: none;" href="https://play.google.com/store/search?q=maanta%20news&c=apps"> Here...</a>
-                </div>
-            </div>
-        </section>
-        <section id="foot">
-            <div class="inn">
-                <div class="social">
-                    <ul>
-                        <li class="social-item"><a href="https://www.facebook.com/nasir.gaayte/"><i class="fa-brands fa-facebook">-Nasir.gaayte</i></a></li>
-                        <li class="social-item"><a href="https://github.com/Nasir-gaayte"><i class="fa-brands fa-github">-somo-nin-jidsii</i></a></li>
-                        <li class="social-item"><a href="https://twitter.com/nasir_gaayte"><i class="fa-brands fa-twitter">@nasir_gaayte</i></a></li>
-                        <li  class="social-item"><a href="mail:info@somdevops.net"><i  class="fa fa-medium">info@somdevops.net</i></a></li>
-                        <li class="social-item"><a href="tel:+252905500009"><i class="fa-brands fa-whatsapp"></i>Tel:- +252905500009</a></li>
-                    </ul>
-                </div>
-                <div class="back">
-                    <ul>
-                        <li class="back-item"><a href="http://somdevops.net/">skills</a></li>
-                        <li class="back-item"><a href="http://somdevops.net/">my website page</a></li>
-                        <li class="back-item"><a href="http://somdevops.net/">Contacts</a></li>
-                    </ul>
-                </div>
-                <div class="end">
-                    copyright &copy;    nasir gaayte
-                </div>
-            </div>
-        </section>
-    </div>
-    <script>
-      (function() {
-        const elements = document.querySelectorAll('.reveal');
-        if (!('IntersectionObserver' in window)) {
-          elements.forEach(el => el.classList.add('is-visible'));
-          // continue to set up theme even without IO
-        }
-        if ('IntersectionObserver' in window) {
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-              }
-            });
-          }, { threshold: 0.12 });
-          elements.forEach(el => observer.observe(el));
-        }
+    <section class="section-shell split-section focus-section" id="skills">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Core Skills</p>
+        <h2>Everything needed to ship a complete product.</h2>
+      </div>
+      <div class="skill-board glass-panel reveal">
+        <span>Flutter</span>
+        <span>Django</span>
+        <span>REST API</span>
+        <span>DevOps</span>
+        <span>Ubuntu Server</span>
+        <span>Nginx</span>
+        <span>Apache</span>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>SCSS</span>
+        <span>Bootstrap</span>
+        <span>Figma UI</span>
+        <span>jQuery</span>
+        <span>HTMX</span>
+      </div>
+    </section>
 
-        // Theme toggle (invert white↔black)
-        const storageKey = 'themeInverted';
-        const root = document.documentElement;
-        if (localStorage.getItem(storageKey) === '1') {
-          root.classList.add('theme-invert');
-        }
-        const btn = document.getElementById('themeToggle');
-        btn?.addEventListener('click', () => {
-          root.classList.toggle('theme-invert');
-          localStorage.setItem(storageKey, root.classList.contains('theme-invert') ? '1' : '0');
-        });
+    <section class="section-shell focus-section" id="work">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Selected Work</p>
+        <h2>Live projects and places to explore the code.</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project-card glass-panel reveal">
+          <div class="project-icon">SD</div>
+          <h3>SomDevOps</h3>
+          <p>A live web project connected to Nasir's development and deployment work.</p>
+          <a href="http://somdevops.net/" target="_blank" rel="noreferrer">View live site</a>
+        </article>
+        <article class="project-card glass-panel reveal">
+          <div class="project-icon">MN</div>
+          <h3>Maanta News App</h3>
+          <p>Flutter application using a REST Framework API, published for Android users.</p>
+          <a href="https://play.google.com/store/search?q=maanta%20news&amp;c=apps" target="_blank" rel="noreferrer">Open on Play Store</a>
+        </article>
+        <article class="project-card glass-panel reveal">
+          <div class="project-icon">GH</div>
+          <h3>GitHub Projects</h3>
+          <p>Code samples, experiments, and personal development work on GitHub.</p>
+          <a href="https://github.com/Nasir-gaayte" target="_blank" rel="noreferrer">Browse GitHub</a>
+        </article>
+      </div>
+    </section>
 
-        // Scroll animations
-        document.addEventListener('DOMContentLoaded', function () {
-            const hero = document.querySelector('.hero');
-            const scrollableContent = document.querySelector('.scrollable-content');
+    <section class="section-shell about-section focus-section" id="about">
+      <div class="about-copy glass-panel reveal">
+        <p class="eyebrow">About</p>
+        <h2>Fullstack developer from Bosaso, Somalia.</h2>
+        <p>
+          I build practical software across the stack: mobile apps with Flutter, backend systems with Django, REST APIs for real products, and server setups that keep deployments running cleanly.
+        </p>
+        <p>
+          My work sits between interface, backend, and infrastructure, so I can help shape the product and also handle the technical pieces needed to launch it.
+        </p>
+      </div>
+      <div class="timeline glass-panel reveal">
+        <div>
+          <span>Build</span>
+          <p>HTML, CSS, SCSS, Bootstrap, Figma UI, jQuery, and HTMX.</p>
+        </div>
+        <div>
+          <span>Connect</span>
+          <p>Django, REST Framework APIs, and mobile app integrations.</p>
+        </div>
+        <div>
+          <span>Deploy</span>
+          <p>Ubuntu Server, Nginx, Apache, and DevOps fundamentals.</p>
+        </div>
+      </div>
+    </section>
 
-            window.addEventListener('scroll', function () {
-                if (window.scrollY > 50) {
-                    hero.classList.add('fade-out');
-                } else {
-                    hero.classList.remove('fade-out');
-                }
-            });
-        });
-      })();
-    </script>
+    <section class="section-shell contact-section focus-section" id="contact">
+      <div class="contact-card glass-panel reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Have a project to build or deploy?</h2>
+        <p>Reach out through email, phone, WhatsApp, GitHub, Facebook, or X.</p>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:info@somdevops.net">info@somdevops.net</a>
+          <a class="button secondary" href="tel:+252905500009">+252 90 550 0009</a>
+        </div>
+        <div class="social-links" aria-label="Social links">
+          <a href="https://www.facebook.com/nasir.gaayte/" target="_blank" rel="noreferrer">Facebook</a>
+          <a href="https://github.com/Nasir-gaayte" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://twitter.com/nasir_gaayte" target="_blank" rel="noreferrer">X</a>
+          <a href="https://wa.me/252905500009" target="_blank" rel="noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Copyright &copy; Nasir Gaayte</span>
+    <a href="#home">Back to top</a>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
