@@ -1,236 +1,271 @@
-(() => {
+(function () {
   'use strict';
 
-  const root = document.documentElement;
-  const $ = (sel, ctx = document) => ctx.querySelector(sel);
-  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (selector, scope) {
+    return (scope || document).querySelector(selector);
+  };
+  var $$ = function (selector, scope) {
+    return Array.prototype.slice.call((scope || document).querySelectorAll(selector));
+  };
+
+  var root = document.documentElement;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 
   /* ---------- theme ---------- */
 
-  const themeBtn = $('[data-theme-toggle]');
-  const themeMeta = $('meta[name="theme-color"]');
+  var themeToggle = $('[data-theme-toggle]');
+  var themeColor = $('meta[name="theme-color"]');
+  var themeColors = { dark: '#0b0b0c', light: '#f4f0ea' };
 
-  const applyTheme = (theme, persist = true) => {
-    root.dataset.theme = theme;
-    const isLight = theme === 'light';
-    if (themeMeta) themeMeta.setAttribute('content', isLight ? '#f4f0ea' : '#0b0b0c');
-    if (themeBtn) {
-      themeBtn.setAttribute('aria-pressed', String(isLight));
-      themeBtn.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+  function syncThemeUI() {
+    var theme = root.dataset.theme === 'light' ? 'light' : 'dark';
+    if (themeToggle) {
+      var next = theme === 'dark' ? 'light' : 'dark';
+      themeToggle.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+      themeToggle.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+      themeToggle.title = 'Switch to ' + next + ' theme';
     }
-    if (persist) {
+    if (themeColor) themeColor.setAttribute('content', themeColors[theme]);
+  }
+
+  if (themeToggle) {
+    syncThemeUI();
+    themeToggle.addEventListener('click', function () {
+      var next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
       try {
-        localStorage.setItem('ng-theme', theme);
+        localStorage.setItem('ng-theme', next);
       } catch (e) {}
-    }
-  };
+      syncThemeUI();
+    });
+  }
 
-  let storedTheme = null;
-  try {
-    storedTheme = localStorage.getItem('ng-theme');
-  } catch (e) {}
-  applyTheme(storedTheme === 'light' ? 'light' : 'dark', false);
-
-  themeBtn?.addEventListener('click', () => {
-    applyTheme(root.dataset.theme === 'light' ? 'dark' : 'light');
+  window.addEventListener('storage', function (event) {
+    if (event.key !== 'ng-theme') return;
+    root.dataset.theme = event.newValue === 'light' ? 'light' : 'dark';
+    syncThemeUI();
   });
 
-  /* ---------- nav + progress ---------- */
+  /* ---------- progress + nav state ---------- */
 
-  const nav = $('#nav');
-  const progress = $('#progress-bar');
-  const navLinks = $$('[data-nav]');
-  let ticking = false;
+  var nav = $('#nav');
+  var progressBar = $('#progress-bar');
+  var navLinks = $$('.nav__links a[data-nav]');
+  var sections = navLinks
+    .map(function (link) {
+      var section = document.getElementById(link.getAttribute('data-nav'));
+      return section ? { link: link, section: section } : null;
+    })
+    .filter(Boolean);
 
-  const onScroll = () => {
-    const y = window.scrollY;
-    nav?.classList.toggle('is-scrolled', y > 8);
+  var scrollQueued = false;
 
-    if (y < 120) {
-      navLinks.forEach((link) => link.removeAttribute('aria-current'));
+  function onScrollFrame() {
+    scrollQueued = false;
+    var y = window.scrollY || window.pageYOffset;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
+
+    if (progressBar) progressBar.style.width = (progress * 100).toFixed(2) + '%';
+    if (nav) nav.classList.toggle('is-scrolled', y > 12);
+
+    var current = null;
+    if (y > 120) {
+      var line = y + 160;
+      sections.forEach(function (item) {
+        if (item.section.offsetTop <= line) current = item;
+      });
     }
-
-    if (progress) {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      const ratio = max > 0 ? Math.min(y / max, 1) : 0;
-      progress.style.width = `${ratio * 100}%`;
-    }
-    ticking = false;
-  };
-
-  window.addEventListener(
-    'scroll',
-    () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(onScroll);
+    navLinks.forEach(function (link) {
+      if (current && link === current.link) {
+        link.setAttribute('aria-current', 'true');
+      } else {
+        link.removeAttribute('aria-current');
       }
-    },
-    { passive: true }
-  );
-  onScroll();
+    });
+  }
+
+  function onScroll() {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    window.requestAnimationFrame(onScrollFrame);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScrollFrame();
 
   /* ---------- mobile menu ---------- */
 
-  const menuBtn = $('[data-menu-toggle]');
-  const menu = $('#mobile-menu');
-  const pageRegions = $$('main, footer');
-  let menuOpen = false;
+  var menu = $('#mobile-menu');
+  var menuBtn = $('[data-menu-toggle]');
+  var pageRegions = $$('main, footer');
+  var menuOpen = false;
 
-  const setMenu = (open) => {
+  function setMenu(open, returnFocus) {
+    if (!menu || !menuBtn || open === menuOpen) return;
     menuOpen = open;
     document.body.classList.toggle('menu-open', open);
-    pageRegions.forEach((region) => {
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    pageRegions.forEach(function (region) {
       region.inert = open;
     });
-    if (menuBtn) {
-      menuBtn.setAttribute('aria-expanded', String(open));
-      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    }
-    if (menu) menu.setAttribute('aria-hidden', String(!open));
+
     if (open) {
-      const firstLink = $('a', menu);
-      window.setTimeout(() => firstLink?.focus({ preventScroll: true }), 80);
-    } else if (document.activeElement === menuBtn) {
+      var firstLink = $('a', menu);
+      window.setTimeout(function () {
+        if (menuOpen && firstLink) firstLink.focus({ preventScroll: true });
+      }, 80);
+    } else if (returnFocus) {
       menuBtn.focus({ preventScroll: true });
     }
-  };
+  }
 
-  menuBtn?.addEventListener('click', () => setMenu(!menuOpen));
+  if (menu && menuBtn) {
+    menuBtn.addEventListener('click', function () {
+      setMenu(!menuOpen, true);
+    });
 
-  menu?.addEventListener('click', (e) => {
-    if (e.target.closest('a')) setMenu(false);
-  });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && menuOpen) {
+        event.preventDefault();
+        setMenu(false, true);
+      }
+    });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && menuOpen) {
-      setMenu(false);
-      menuBtn?.focus();
-    }
-  });
+    $$('a', menu).forEach(function (link) {
+      link.addEventListener('click', function () {
+        setMenu(false, false);
+      });
+    });
 
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 960 && menuOpen) setMenu(false);
-  });
+    var wide = window.matchMedia('(min-width: 961px)');
+    var onWide = function (event) {
+      if (event.matches) setMenu(false, false);
+    };
+    if (wide.addEventListener) wide.addEventListener('change', onWide);
+    else if (wide.addListener) wide.addListener(onWide);
+  }
 
   /* ---------- reveal ---------- */
 
-  const revealEls = $$('.reveal');
-  if (reduceMotion || !('IntersectionObserver' in window)) {
-    revealEls.forEach((el) => el.classList.add('is-in'));
-  } else {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-in');
-            revealObserver.unobserve(entry.target);
-          }
+  var revealItems = $$('.reveal');
+
+  if ('IntersectionObserver' in window && !reduceMotion.matches) {
+    var revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-in');
+          revealObserver.unobserve(entry.target);
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
     );
-    revealEls.forEach((el) => revealObserver.observe(el));
+    revealItems.forEach(function (item) {
+      revealObserver.observe(item);
+    });
+  } else {
+    revealItems.forEach(function (item) {
+      item.classList.add('is-in');
+    });
   }
 
   /* ---------- counters ---------- */
 
-  const counters = $$('[data-count]');
-  const animateCount = (el) => {
-    const target = Number(el.dataset.count);
-    if (!Number.isFinite(target)) return;
-    if (reduceMotion) {
-      el.textContent = String(target);
+  var counters = $$('[data-count]');
+
+  function settle(counter) {
+    counter.textContent = counter.getAttribute('data-count');
+  }
+
+  function animate(counter) {
+    var target = parseInt(counter.getAttribute('data-count'), 10);
+    if (isNaN(target)) return;
+    if (reduceMotion.matches) {
+      settle(counter);
       return;
     }
-    const duration = 1400;
-    const start = performance.now();
-    const tick = (now) => {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = String(Math.round(target * eased));
-      if (p < 1) requestAnimationFrame(tick);
-      else el.textContent = String(target);
-    };
-    requestAnimationFrame(tick);
-  };
+    var start = null;
+    var duration = 1400;
+    counter.textContent = '0';
+    function tick(now) {
+      if (start === null) start = now;
+      var t = Math.min(1, (now - start) / duration);
+      var eased = 1 - Math.pow(1 - t, 3);
+      counter.textContent = String(Math.round(target * eased));
+      if (t < 1) {
+        window.requestAnimationFrame(tick);
+      } else {
+        settle(counter);
+      }
+    }
+    window.requestAnimationFrame(tick);
+  }
 
-  if ('IntersectionObserver' in window) {
-    const counterObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animateCount(entry.target);
+  if (counters.length) {
+    if ('IntersectionObserver' in window) {
+      var counterObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            animate(entry.target);
             counterObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-    counters.forEach((el) => counterObserver.observe(el));
-  } else {
-    counters.forEach(animateCount);
+          });
+        },
+        { threshold: 0.6 }
+      );
+      counters.forEach(function (counter) {
+        counterObserver.observe(counter);
+      });
+    } else {
+      counters.forEach(settle);
+    }
   }
 
   /* ---------- spotlight ---------- */
 
-  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  if (finePointer && !reduceMotion) {
-    $$('.spot').forEach((el) => {
-      el.addEventListener('pointermove', (e) => {
-        const rect = el.getBoundingClientRect();
-        el.style.setProperty('--mx', `${e.clientX - rect.left}px`);
-        el.style.setProperty('--my', `${e.clientY - rect.top}px`);
-      });
+  if (finePointer.matches && !reduceMotion.matches) {
+    $$('.spot').forEach(function (el) {
+      el.addEventListener(
+        'pointermove',
+        function (event) {
+          var rect = el.getBoundingClientRect();
+          el.style.setProperty('--mx', event.clientX - rect.left + 'px');
+          el.style.setProperty('--my', event.clientY - rect.top + 'px');
+        },
+        { passive: true }
+      );
     });
   }
 
-  /* ---------- clock ---------- */
+  /* ---------- Bosaso clock ---------- */
 
-  const clocks = $$('[data-clock]');
+  var clocks = $$('[data-clock]');
   if (clocks.length) {
-    const formatter = new Intl.DateTimeFormat('en-GB', {
+    var timeFormat = new Intl.DateTimeFormat('en-GB', {
       timeZone: 'Africa/Mogadishu',
       hour: '2-digit',
       minute: '2-digit',
-      hour12: false,
+      hourCycle: 'h23'
     });
-    const paintClock = () => {
-      const time = formatter.format(new Date());
-      clocks.forEach((el) => (el.textContent = time));
-    };
-    paintClock();
-    setInterval(paintClock, 30000);
-  }
 
-  /* ---------- active nav ---------- */
+    function tickClock() {
+      var value = timeFormat.format(new Date());
+      clocks.forEach(function (clock) {
+        clock.textContent = value;
+      });
+    }
 
-  const sections = ['work', 'studio', 'stack', 'contact']
-    .map((id) => document.getElementById(id))
-    .filter(Boolean);
-
-  if ('IntersectionObserver' in window && sections.length) {
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          navLinks.forEach((link) => {
-            if (link.dataset.nav === entry.target.id) {
-              link.setAttribute('aria-current', 'true');
-            } else {
-              link.removeAttribute('aria-current');
-            }
-          });
-        });
-      },
-      { rootMargin: '-40% 0px -52% 0px', threshold: 0 }
-    );
-    sections.forEach((section) => sectionObserver.observe(section));
+    tickClock();
+    window.setInterval(tickClock, 15000);
   }
 
   /* ---------- year ---------- */
 
-  const year = $('#year');
+  var year = $('#year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
