@@ -1,208 +1,555 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nasir Gaayte - Fullstack Developer, Flutter mobile app developer, Django API engineer, and DevOps specialist from Bosaso, Somalia.">
-  <title>Nasir Gaayte | Fullstack Developer</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nasir Gaayte — Fullstack Developer &amp; Founder of SomDevOps</title>
+<meta name="description" content="Nasir Gaayte is a fullstack developer in Bosaso, Somalia. Flutter apps, Django backends, REST APIs and DevOps for businesses across Somalia. Founder of SomDevOps.">
+<meta name="author" content="Nasir Gaayte">
+<meta name="theme-color" content="#0b0b0c">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://nasir-gaayte.github.io/portfolio/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nasir Gaayte — Fullstack Developer &amp; Founder of SomDevOps">
+<meta property="og:description" content="I build the whole stack — then ship it. Flutter apps, Django APIs and DevOps from Bosaso, Somalia.">
+<meta property="og:image" content="/img/portrait.jpg">
+<meta property="og:site_name" content="Nasir Gaayte">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@nasir_gaayte">
+<meta name="twitter:title" content="Nasir Gaayte — Fullstack Developer &amp; Founder of SomDevOps">
+<meta name="twitter:description" content="I build the whole stack — then ship it. Flutter apps, Django APIs and DevOps from Bosaso, Somalia.">
+<meta name="twitter:image" content="/img/portrait.jpg">
+
+<link rel="preload" href="/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('ng-theme'); } catch (e) {}
+    document.documentElement.dataset.theme = t === 'light' ? 'light' : 'dark';
+    document.documentElement.classList.add('js');
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Nasir Gaayte",
+  "jobTitle": "Fullstack Developer",
+  "url": "https://nasir-gaayte.github.io/portfolio/",
+  "image": "https://nasir-gaayte.github.io/portfolio/naisrG.jpeg",
+  "email": "mailto:info@somdevops.net",
+  "telephone": "+252905500009",
+  "address": { "@type": "PostalAddress", "addressLocality": "Bosaso", "addressRegion": "Puntland", "addressCountry": "SO" },
+  "worksFor": { "@type": "Organization", "name": "SomDevOps", "url": "https://www.somdevops.net" },
+  "sameAs": [
+    "https://github.com/Nasir-gaayte",
+    "https://twitter.com/nasir_gaayte",
+    "https://www.facebook.com/nasir.gaayte/",
+    "https://www.somdevops.net"
+  ],
+  "knowsAbout": ["Flutter", "Django", "REST APIs", "DevOps", "Ubuntu", "Nginx", "UI/UX Design"]
+}
+</script>
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="scene-decor" aria-hidden="true">
-    <span class="blob blob-left"></span>
-    <span class="blob blob-right"></span>
-    <span class="blob blob-bottom"></span>
-    <span class="sphere sphere-blue"></span>
-    <span class="sphere sphere-gold"></span>
-    <span class="tube tube-top"></span>
-    <span class="tube tube-bottom"></span>
-  </div>
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="Nasir Gaayte home">
-      <span>NG</span>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a class="brand" href="#home" aria-label="Nasir Gaayte — home">
+      <span class="brand__mark" aria-hidden="true">N</span>
+      <span class="brand__text">
+        <span class="brand__name">nasir gaayte</span>
+        <span class="brand__sub">SomDevOps</span>
+      </span>
     </a>
 
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="#skills">Skills</a>
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work" data-nav="work">Work</a>
+      <a href="#studio" data-nav="studio">Studio</a>
+      <a href="#stack" data-nav="stack">Stack</a>
+      <a href="#contact" data-nav="contact">Contact</a>
     </nav>
 
-    <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">
-      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="4"></circle>
-        <path d="M12 2v2"></path>
-        <path d="M12 20v2"></path>
-        <path d="m4.93 4.93 1.41 1.41"></path>
-        <path d="m17.66 17.66 1.41 1.41"></path>
-        <path d="M2 12h2"></path>
-        <path d="M20 12h2"></path>
-        <path d="m6.34 17.66-1.41 1.41"></path>
-        <path d="m19.07 4.93-1.41 1.41"></path>
-      </svg>
-      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M12 3a6 6 0 0 0 9 7.5 9 9 0 1 1-9-7.5Z"></path>
-      </svg>
-    </button>
-  </header>
+    <div class="nav__actions">
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" aria-pressed="false">
+        <svg class="icon icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5"/></svg>
+        <svg class="icon icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20.3 14.6A8.5 8.5 0 0 1 9.4 3.7a8.5 8.5 0 1 0 10.9 10.9Z"/></svg>
+      </button>
+      <a class="btn btn--primary nav__cta" href="mailto:info@somdevops.net?subject=Project%20enquiry">Start a project</a>
+      <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-  <main>
-    <section class="hero section-shell glass-stage reveal focus-section section-active" id="home">
-      <div class="hero-copy">
-        <p class="eyebrow">Bosaso, Somalia | Available for web, mobile, and deployment work</p>
-        <h1>Nasir Gaayte builds apps, APIs, and production-ready servers.</h1>
-        <p class="hero-text">
-          Fullstack Developer focused on Flutter mobile apps, Django backends, REST APIs, and DevOps workflows that move projects from idea to live product.
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <nav class="mobile-menu__nav" aria-label="Mobile">
+    <a href="#work"><span>01</span> Work</a>
+    <a href="#studio"><span>02</span> Studio</a>
+    <a href="#stack"><span>03</span> Stack</a>
+    <a href="#process"><span>04</span> Process</a>
+    <a href="#contact"><span>05</span> Contact</a>
+  </nav>
+  <div class="mobile-menu__foot">
+    <a href="mailto:info@somdevops.net">info@somdevops.net</a>
+    <a href="tel:+252905500009">+252 90 550 0009</a>
+    <div class="mobile-menu__socials">
+      <a href="https://github.com/Nasir-gaayte" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://twitter.com/nasir_gaayte" target="_blank" rel="noopener">X</a>
+      <a href="https://www.facebook.com/nasir.gaayte/" target="_blank" rel="noopener">Facebook</a>/Users/nasir/dev/HtmlCss/darkred/index.html
+    </div>
+  </div>
+</div>
+
+<main id="main">
+  <section class="hero" id="home">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow reveal"><span class="eyebrow__dot" aria-hidden="true"></span> Fullstack developer · Bosaso, Somalia</p>
+        <h1 class="hero__title reveal" style="--d:.06s">
+          <span>I build the</span>
+          <span><em>whole stack</em> —</span>
+          <span>then ship it.</span>
+        </h1>
+        <p class="hero__lede reveal" style="--d:.12s">
+          I'm Nasir Gaayte, a fullstack developer and the founder of
+          <a class="text-link" href="https://www.somdevops.net" target="_blank" rel="noopener">SomDevOps</a>.
+          I design interfaces, build Django APIs, ship Flutter apps, and run the servers
+          that keep them online.
         </p>
-        <div class="hero-actions">
-          <a class="button primary" href="https://github.com/Nasir-gaayte" target="_blank" rel="noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.48.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"></path>
-            </svg>
-            GitHub
+        <div class="hero__actions reveal" style="--d:.18s">
+          <a class="btn btn--primary" href="#work">
+            See selected work
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a class="button secondary" href="#contact">Contact Me</a>
+          <a class="btn btn--ghost" href="mailto:info@somdevops.net?subject=Project%20enquiry">Start a project</a>
         </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="portrait-card glass-panel">
-          <div class="liquid-shape shape-one" aria-hidden="true"></div>
-          <div class="liquid-shape shape-two" aria-hidden="true"></div>
-          <div class="card-chip" aria-hidden="true"></div>
-          <img src="naisrG.jpeg" alt="Nasir Gaayte">
-          <div class="status-card">
-            <span class="status-dot"></span>
-            <span>Fullstack Developer</span>
+        <dl class="hero__stats reveal" style="--d:.24s">
+          <div class="stat">
+            <dt>Projects delivered</dt>
+            <dd><span data-count="50">50</span><span class="stat__suffix">+</span></dd>
           </div>
+          <div class="stat">
+            <dt>Studio founded</dt>
+            <dd>2020</dd>
+          </div>
+          <div class="stat">
+            <dt>Apps live</dt>
+            <dd><span data-count="6">6</span></dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="hero__visual reveal" style="--d:.15s">
+        <figure class="portrait">
+          <div class="portrait__frame">
+            <div class="portrait__img">
+              <img src="/img/portrait.jpg" alt="Portrait of Nasir Gaayte wearing glasses and a cap" width="603" height="1000" fetchpriority="high">
+              <span class="portrait__tint" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="status-card">
+            <span class="status-card__dot" aria-hidden="true"></span>
+            <span class="status-card__text">
+              <strong>Available for new projects</strong>
+              <small>Bosaso · <span data-clock>--:--</span> EAT</small>
+            </span>
+          </div>
+          <figcaption class="portrait__cap">
+            <span>Nasir Gaayte</span>
+            <span>Founder · SomDevOps</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span>Django</span><i>◆</i><span>Flutter</span><i>◆</i><span>REST APIs</span><i>◆</i><span>DevOps</span><i>◆</i><span>Nginx</span><i>◆</i><span>Ubuntu</span><i>◆</i><span>CI/CD</span><i>◆</i><span>UI/UX</span><i>◆</i><span>E-commerce</span><i>◆</i><span>Hosting</span><i>◆</i>
         </div>
-        <div class="metric-card glass-panel">
-          <strong>Flutter + Django</strong>
-          <span>Mobile apps backed by clean REST APIs</span>
+        <div class="marquee__group">
+          <span>Django</span><i>◆</i><span>Flutter</span><i>◆</i><span>REST APIs</span><i>◆</i><span>DevOps</span><i>◆</i><span>Nginx</span><i>◆</i><span>Ubuntu</span><i>◆</i><span>CI/CD</span><i>◆</i><span>UI/UX</span><i>◆</i><span>E-commerce</span><i>◆</i><span>Hosting</span><i>◆</i>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section-shell quick-grid focus-section" id="highlights" aria-label="Highlights">
-      <article class="glass-panel stat reveal">
-        <span>01</span>
-        <strong>Mobile Apps</strong>
-        <p>Flutter experiences for Android and iOS.</p>
-      </article>
-      <article class="glass-panel stat reveal">
-        <span>02</span>
-        <strong>Backend APIs</strong>
-        <p>Django and REST Framework services.</p>
-      </article>
-      <article class="glass-panel stat reveal">
-        <span>03</span>
-        <strong>DevOps</strong>
-        <p>Ubuntu, Nginx, and deployment support.</p>
-      </article>
-    </section>
-
-    <section class="section-shell split-section focus-section" id="skills">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Core Skills</p>
-        <h2>Everything needed to ship a complete product.</h2>
-      </div>
-      <div class="skill-board glass-panel reveal">
-        <span>Flutter</span>
-        <span>Django</span>
-        <span>REST API</span>
-        <span>DevOps</span>
-        <span>Ubuntu Server</span>
-        <span>Nginx</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>SCSS</span>
-        <span>Bootstrap</span>
-        <span>Figma UI</span>
-        <span>jQuery</span>
-        <span>HTMX</span>
-      </div>
-    </section>
-
-    <section class="section-shell focus-section" id="work">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Selected Work</p>
-        <h2>Live projects and places to explore the code.</h2>
-      </div>
-      <div class="project-grid">
-        <article class="project-card glass-panel reveal">
-          <div class="project-icon">SD</div>
-          <h3>SomDevOps</h3>
-          <p>A live web project connected to Nasir's development and deployment work.</p>
-          <a href="http://somdevops.net/" target="_blank" rel="noreferrer">View live site</a>
-        </article>
-        <article class="project-card glass-panel reveal">
-          <div class="project-icon">MN</div>
-          <h3>Safar01 App</h3>
-          <p>Flutter application using a REST Framework API, published for Android users.</p>
-          <a href="https://play.google.com/store/apps/details?id=net.somdevops.safar&hl=en" target="_blank" rel="noreferrer">Open on Play Store</a>
-        </article>
-        <article class="project-card glass-panel reveal">
-          <div class="project-icon">GH</div>
-          <h3>GitHub Projects</h3>
-          <p>Code samples, experiments, and personal development work on GitHub.</p>
-          <a href="https://github.com/Nasir-gaayte" target="_blank" rel="noreferrer">Browse GitHub</a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-shell about-section focus-section" id="about">
-      <div class="about-copy glass-panel reveal">
-        <p class="eyebrow">About</p>
-        <h2>Fullstack developer from Bosaso, Somalia.</h2>
-        <p>
-          I build practical software across the stack: mobile apps with Flutter, backend systems with Django, REST APIs for real products, and server setups that keep deployments running cleanly.
+  <section class="section work" id="work">
+    <div class="container">
+      <header class="section-head">
+        <div>
+          <p class="section-index reveal"><span>01</span> Selected work</p>
+          <h2 class="section-title reveal" style="--d:.05s">Products in the <em>wild.</em></h2>
+        </div>
+        <p class="section-note reveal" style="--d:.1s">
+          A few things shipped for Somali businesses — from phonebooks and bus booking
+          to storefronts and finance tools. All built end to end.
         </p>
-        <p>
-          My work sits between interface, backend, and infrastructure, so I can help shape the product and also handle the technical pieces needed to launch it.
+      </header>
+
+      <div class="work-grid">
+        <article class="project project--lg spot reveal">
+          <a class="project__media" href="https://www.somdevops.net" target="_blank" rel="noopener" aria-label="Doon Wac — view project on SomDevOps">
+            <img src="/img/doonwac.jpg" alt="Illustration of a telephone handset and an open directory book" width="900" height="720" loading="lazy">
+            <span class="project__wash" aria-hidden="true"></span>
+            <span class="project__open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          </a>
+          <div class="project__body">
+            <p class="project__meta"><span class="project__num">01</span> Mobile app · Directory <span class="project__year">2025</span></p>
+            <h3><a href="https://www.somdevops.net" target="_blank" rel="noopener">Doon Wac</a></h3>
+            <p class="project__desc">A country-wide phonebook app that makes finding people, shops and services across Somalia as simple as a search.</p>
+            <ul class="tags"><li>Flutter</li><li>Django</li><li>REST API</li></ul>
+          </div>
+        </article>
+
+        <article class="project project--md spot reveal" style="--d:.08s">
+          <a class="project__media" href="https://play.google.com/store/apps/details?id=net.somdevops.safar&amp;hl=en" target="_blank" rel="noopener" aria-label="Safar01 — open on Google Play">
+            <img src="/img/safar01.jpg" alt="Safar bus booking app screens with seat selection and checkout" width="1400" height="720" loading="lazy">
+            <span class="project__wash" aria-hidden="true"></span>
+            <span class="project__open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          </a>
+          <div class="project__body">
+            <p class="project__meta"><span class="project__num">02</span> Mobile app · Travel <span class="project__year">2026</span></p>
+            <h3><a href="https://play.google.com/store/apps/details?id=net.somdevops.safar&amp;hl=en" target="_blank" rel="noopener">Safar01</a></h3>
+            <p class="project__desc">Bus booking for Puntland: live seat selection, route search and a clean checkout, live on Google Play.</p>
+            <ul class="tags"><li>Flutter</li><li>Django</li><li>Payments</li></ul>
+          </div>
+        </article>
+
+        <article class="project spot reveal">
+          <a class="project__media project__media--brand" href="https://www.somdevops.net" target="_blank" rel="noopener" aria-label="Bosaso Fast Food — view project on SomDevOps">
+            <span class="brand-visual__ring" aria-hidden="true"></span>
+            <span class="brand-visual__word" aria-hidden="true">BFF</span>
+            <img class="brand-visual__logo" src="/img/bff_512.png" alt="Bosaso Fast Food logo" width="320" height="320" loading="lazy">
+            <span class="project__open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          </a>
+          <div class="project__body">
+            <p class="project__meta"><span class="project__num">03</span> Web platform · Food</p>
+            <h3><a href="https://www.somdevops.net" target="_blank" rel="noopener">Bosaso Fast Food</a></h3>
+            <p class="project__desc">Online ordering for a Bosaso restaurant — menu, cart, delivery and a live order dashboard.</p>
+            <ul class="tags"><li>Django</li><li>HTMX</li><li>Dashboard</li></ul>
+          </div>
+        </article>
+
+        <article class="project spot reveal" style="--d:.06s">
+          <a class="project__media" href="https://www.somdevops.net" target="_blank" rel="noopener" aria-label="FBSale — view project on SomDevOps">
+            <img src="/img/fbsale.jpg" alt="FBSale online shop on a phone with WhatsApp order confirmation" width="940" height="1400" loading="lazy">
+            <span class="project__wash" aria-hidden="true"></span>
+            <span class="project__open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          </a>
+          <div class="project__body">
+            <p class="project__meta"><span class="project__num">04</span> Web platform · Marketplace</p>
+            <h3><a href="https://www.somdevops.net" target="_blank" rel="noopener">FBSale</a></h3>
+            <p class="project__desc">A marketplace for small Bosaso businesses — browse products and confirm the order instantly over WhatsApp.</p>
+            <ul class="tags"><li>Django</li><li>HTML/CSS</li><li>WhatsApp</li></ul>
+          </div>
+        </article>
+
+        <article class="project spot reveal" style="--d:.12s">
+          <a class="project__media" href="https://www.somdevops.net" target="_blank" rel="noopener" aria-label="QARBAD — view project on SomDevOps">
+            <img src="/img/qarbad.jpg" alt="QARBAD local finance app cover with a wallet and globe" width="1400" height="674" loading="lazy">
+            <span class="project__wash" aria-hidden="true"></span>
+            <span class="project__open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          </a>
+          <div class="project__body">
+            <p class="project__meta"><span class="project__num">05</span> Mobile app · Finance</p>
+            <h3><a href="https://www.somdevops.net" target="_blank" rel="noopener">QARBAD</a></h3>
+            <p class="project__desc">A local finance companion for tracking spending, budgets and financial control in everyday life.</p>
+            <ul class="tags"><li>Flutter</li><li>Django</li><li>Analytics</li></ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="more reveal">
+        <a class="more__row" href="https://www.somdevops.net" target="_blank" rel="noopener">
+          <span class="more__idx">01</span>
+          <span class="more__title">Somali Online Course</span>
+          <span class="more__cat">SaaS learning platform</span>
+          <span class="more__year">2026</span>
+          <span class="more__arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="more__row" href="https://www.somdevops.net" target="_blank" rel="noopener">
+          <span class="more__idx">02</span>
+          <span class="more__title">SNN · Somali News</span>
+          <span class="more__cat">News &amp; media platform</span>
+          <span class="more__year">2026</span>
+          <span class="more__arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="more__row" href="https://www.somdevops.net" target="_blank" rel="noopener">
+          <span class="more__idx">03</span>
+          <span class="more__title">Hala Restaurant</span>
+          <span class="more__cat">Restaurant management system</span>
+          <span class="more__year">2025</span>
+          <span class="more__arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="more__row" href="https://www.somdevops.net" target="_blank" rel="noopener">
+          <span class="more__idx">04</span>
+          <span class="more__title">Mano Shop</span>
+          <span class="more__cat">E-commerce storefront</span>
+          <span class="more__year">2025</span>
+          <span class="more__arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section studio-wrap" id="studio">
+    <div class="container">
+      <div class="studio spot reveal">
+        <div class="studio__intro">
+          <div class="studio__brand">
+            <img class="studio__logo" src="/img/somdevops-logo.png" alt="SomDevOps logo" width="320" height="213" loading="lazy">
+            <span class="studio__badge">Est. 2020</span>
+          </div>
+          <p class="section-index"><span>02</span> The studio</p>
+          <h2 class="studio__title">The studio behind the <em>work.</em></h2>
+          <p class="studio__copy">
+            I founded <a class="text-link" href="https://www.somdevops.net" target="_blank" rel="noopener">SomDevOps</a>
+            to bring modern software to Somali businesses — built locally, priced fairly,
+            and supported long after launch.
+          </p>
+          <div class="studio__pricing">
+            <span class="pill">Websites from $200</span>
+            <span class="pill">E-commerce from $500</span>
+          </div>
+          <a class="btn btn--primary" href="https://www.somdevops.net" target="_blank" rel="noopener">
+            Visit somdevops.net
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+
+        <div class="studio__services">
+          <article class="service">
+            <span class="service__num">01</span>
+            <div>
+              <h3>Web development</h3>
+              <p>Django, HTML/CSS and HTMX. Fast, responsive, SEO-ready websites.</p>
+            </div>
+          </article>
+          <article class="service">
+            <span class="service__num">02</span>
+            <div>
+              <h3>Mobile apps</h3>
+              <p>Flutter apps for Android and iOS — designed, published and maintained.</p>
+            </div>
+          </article>
+          <article class="service">
+            <span class="service__num">03</span>
+            <div>
+              <h3>DevOps &amp; hosting</h3>
+              <p>Ubuntu, Nginx, CI/CD, backups and monitoring. Servers that stay up.</p>
+            </div>
+          </article>
+          <article class="service">
+            <span class="service__num">04</span>
+            <div>
+              <h3>E-commerce &amp; payments</h3>
+              <p>Storefronts with WhatsApp ordering and local payment integrations.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="studio__stats">
+          <div class="studio__stat"><strong>50+</strong><span>Projects delivered</span></div>
+          <div class="studio__stat"><strong>2020</strong><span>Founded in Bosaso</span></div>
+          <div class="studio__stat"><strong>24/7</strong><span>Support &amp; monitoring</span></div>
+          <div class="studio__stat"><strong>5+</strong><span>Cities served</span></div>
+        </div>
+      </div>
+
+      <div class="apps reveal">
+        <div class="apps__head">
+          <p class="section-index"><span>03</span> Apps shipped</p>
+          <p class="apps__note">Live on Android — built with Flutter, powered by Django.</p>
+        </div>
+        <ul class="apps__grid">
+          <li class="app-tile">
+            <img src="/img/doonwaclogo.jpeg" alt="Doon Wac logo" width="320" height="320" loading="lazy">
+            <span>Doon Wac</span>
+          </li>
+          <li class="app-tile">
+            <img src="/img/safarlogo.png" alt="Safar01 logo" width="320" height="320" loading="lazy">
+            <span>Safar01</span>
+          </li>
+          <li class="app-tile">
+            <img src="/img/qarbadlogo.png" alt="QARBAD logo" width="320" height="320" loading="lazy">
+            <span>QARBAD</span>
+          </li>
+          <li class="app-tile">
+            <img src="/img/bff_512.png" alt="Bosaso Fast Food logo" width="320" height="320" loading="lazy">
+            <span>BFF</span>
+          </li>
+          <li class="app-tile">
+            <img src="/img/icon512.png" alt="Mano logo" width="320" height="320" loading="lazy">
+            <span>Mano</span>
+          </li>
+          <li class="app-tile">
+            <img src="/img/EmoneyLogo.png" alt="e2e logo" width="320" height="319" loading="lazy">
+            <span>e2e</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stack" id="stack">
+    <div class="container">
+      <header class="section-head">
+        <div>
+          <p class="section-index reveal"><span>04</span> Stack</p>
+          <h2 class="section-title reveal" style="--d:.05s">Tools I use to <em>ship.</em></h2>
+        </div>
+        <p class="section-note reveal" style="--d:.1s">
+          One person, the whole path from design file to production server.
+          No hand-offs, no gaps.
         </p>
-      </div>
-      <div class="timeline glass-panel reveal">
-        <div>
-          <span>Build</span>
-          <p>HTML, CSS, SCSS, Bootstrap, Figma UI, jQuery, and HTMX.</p>
-        </div>
-        <div>
-          <span>Connect</span>
-          <p>Django, REST Framework APIs, and mobile app integrations.</p>
-        </div>
-        <div>
-          <span>Deploy</span>
-          <p>Ubuntu Server, Nginx, and DevOps fundamentals.</p>
-        </div>
-      </div>
-    </section>
+      </header>
 
-    <section class="section-shell contact-section focus-section" id="contact">
-      <div class="contact-card glass-panel reveal">
-        <p class="eyebrow">Contact</p>
-        <h2>Have a project to build or deploy?</h2>
-        <p>Reach out through email, phone, WhatsApp, GitHub, Facebook, or X.</p>
-        <div class="contact-actions">
-          <a class="button primary" href="mailto:info@somdevops.net">info@somdevops.net</a>
-          <a class="button secondary" href="tel:+252905500009">+252 90 550 0009</a>
+      <div class="stack__grid">
+        <div class="stack__group reveal">
+          <h3>Mobile</h3>
+          <ul class="tags tags--lg"><li>Flutter</li><li>Dart</li></ul>
         </div>
-        <div class="social-links" aria-label="Social links">
-          <a href="https://www.facebook.com/nasir.gaayte/" target="_blank" rel="noreferrer">Facebook</a>
-          <a href="https://github.com/Nasir-gaayte" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://twitter.com/nasir_gaayte" target="_blank" rel="noreferrer">X</a>
-          <a href="https://wa.me/252905500009" target="_blank" rel="noreferrer">WhatsApp</a>
+        <div class="stack__group reveal" style="--d:.05s">
+          <h3>Backend</h3>
+          <ul class="tags tags--lg"><li>Django</li><li>Python</li><li>REST Framework</li></ul>
+        </div>
+        <div class="stack__group reveal" style="--d:.1s">
+          <h3>Frontend</h3>
+          <ul class="tags tags--lg"><li>HTML</li><li>CSS / SCSS</li><li>Bootstrap</li><li>jQuery</li><li>HTMX</li></ul>
+        </div>
+        <div class="stack__group reveal" style="--d:.15s">
+          <h3>Infrastructure</h3>
+          <ul class="tags tags--lg"><li>Ubuntu</li><li>Nginx</li><li>Git</li><li>CI/CD</li><li>Hosting</li></ul>
+        </div>
+        <div class="stack__group reveal" style="--d:.2s">
+          <h3>Design</h3>
+          <ul class="tags tags--lg"><li>Figma</li><li>UI/UX</li><li>Responsive</li></ul>
+        </div>
+        <div class="stack__group reveal" style="--d:.25s">
+          <h3>Integrations</h3>
+          <ul class="tags tags--lg"><li>Zaad</li><li>E-Dahab</li><li>WhatsApp</li></ul>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="footer">
-    <span>Copyright &copy; Nasir Gaayte</span>
-    <a href="#home">Back to top</a>
-  </footer>
+  <section class="section process" id="process">
+    <div class="container">
+      <header class="section-head">
+        <div>
+          <p class="section-index reveal"><span>05</span> Process</p>
+          <h2 class="section-title reveal" style="--d:.05s">From idea to <em>live.</em></h2>
+        </div>
+      </header>
+      <ol class="process__grid">
+        <li class="step reveal">
+          <span class="step__num">01</span>
+          <h3>Discover</h3>
+          <p>Scope, requirements and an honest timeline. We agree on what success looks like before writing code.</p>
+        </li>
+        <li class="step reveal" style="--d:.06s">
+          <span class="step__num">02</span>
+          <h3>Design</h3>
+          <p>Interface and flow in Figma, mobile-first from the start — because that is how Somalia browses.</p>
+        </li>
+        <li class="step reveal" style="--d:.12s">
+          <span class="step__num">03</span>
+          <h3>Build</h3>
+          <p>Django and Flutter, tested and debugged with you before anything goes near production.</p>
+        </li>
+        <li class="step reveal" style="--d:.18s">
+          <span class="step__num">04</span>
+          <h3>Ship &amp; support</h3>
+          <p>Deploy, monitor, patch and iterate. The relationship does not end at launch.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact__grid">
+        <div class="contact__copy">
+          <p class="section-index reveal"><span>06</span> Contact</p>
+          <h2 class="contact__title reveal" style="--d:.05s">Have a product in mind?<br><em>Let's build it.</em></h2>
+          <p class="contact__lede reveal" style="--d:.1s">
+            Based in Bosaso, working with teams across Somalia and beyond.
+            Tell me what you're building — I usually reply within a day.
+          </p>
+          <p class="contact__time reveal" style="--d:.14s">
+            <span class="status-card__dot" aria-hidden="true"></span>
+            Local time in Bosaso · <span data-clock>--:--</span> EAT
+          </p>
+        </div>
+
+        <div class="contact__cards">
+          <a class="contact-card spot reveal" href="mailto:info@somdevops.net">
+            <span class="contact-card__label">Email</span>
+            <span class="contact-card__value">info@somdevops.net</span>
+            <span class="contact-card__arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="contact-card spot reveal" href="tel:+252905500009" style="--d:.06s">
+            <span class="contact-card__label">Phone</span>
+            <span class="contact-card__value">+252 90 550 0009</span>
+            <span class="contact-card__arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="contact-card spot reveal" href="https://wa.me/252661119191" target="_blank" rel="noopener" style="--d:.12s">
+            <span class="contact-card__label">WhatsApp</span>
+            <span class="contact-card__value">+252 66 111 9191</span>
+            <span class="contact-card__arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact__foot reveal">
+        <div class="socials">
+          <span class="socials__label">Elsewhere</span>
+          <a href="https://github.com/Nasir-gaayte" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="https://twitter.com/nasir_gaayte" target="_blank" rel="noopener">X <span aria-hidden="true">↗</span></a>
+          <a href="https://www.facebook.com/nasir.gaayte/" target="_blank" rel="noopener">Facebook <span aria-hidden="true">↗</span></a>
+          <a href="https://www.somdevops.net" target="_blank" rel="noopener">SomDevOps <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <a class="brand" href="#home" aria-label="Nasir Gaayte — back to top">
+        <span class="brand__mark" aria-hidden="true">N</span>
+        <span class="brand__text">
+          <span class="brand__name">nasir gaayte</span>
+          <span class="brand__sub">Fullstack · DevOps</span>
+        </span>
+      </a>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#work">Work</a>
+        <a href="#studio">Studio</a>
+        <a href="#stack">Stack</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="to-top" href="#home" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+      </a>
+    </div>
+    <div class="footer__bottom">
+      <p>© <span id="year">2026</span> Nasir Gaayte. All rights reserved.</p>
+      <p>Designed &amp; built in Bosaso — HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
 </body>
 </html>
